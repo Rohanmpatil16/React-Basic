@@ -1,23 +1,13 @@
 import "./App.css"
+import Navigation from "./components/Navigation"
+import HeroSection from "./components/HeroSection"
 const App=()=>{
   return (
   <div>
-    <nav>
-      <div className="logo">
-        <img src="/image/logo 1.png" alt="logo" />
-      </div>
-
-      <ul>
-        <li href="#">MENU</li>
-        <li href="#">LOCATION</li>
-        <li href="#">ABOUT</li>
-        <li href="#">CONTACT</li>
-      </ul>
-
-      <button>Login</button>
-    </nav>
+   <Navigation />
+   <HeroSection />
   </div>
   )
 }
 
-export default App
+export default App;
