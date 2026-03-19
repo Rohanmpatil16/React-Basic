@@ -9,9 +9,9 @@ export const Button = (props) => {
     console.log(props)
   return (
     <div>
-        <button className={style.button_primary}>
-            <BiSolidMessageAltDetail  />
-            <BsFillTelephoneFill />
+        <button className={props.isOutline ? style.button_outline : style.button_primary}>
+            {/* <BiSolidMessageAltDetail  />
+            <BsFillTelephoneFill /> */}
             {props.text}
             {props.icon}
         </button>

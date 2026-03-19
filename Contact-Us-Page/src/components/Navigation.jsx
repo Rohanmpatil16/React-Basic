@@ -5,7 +5,7 @@ const Navigation = () => {
   return (
 <nav className={style.container}>
     <div className={style.nav}>
-    <img src="./images/image.png" alt="logo" />
+    <img className={style.logo} src="./images/image.png" alt="logo" />
     </div>
 
     <ul>

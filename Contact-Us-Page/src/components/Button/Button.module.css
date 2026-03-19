@@ -7,4 +7,21 @@
     align-items: center;
     gap:8px;
     justify-content: center;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.button_outline{
+    padding:18px 10px;
+    background-color: #fff;
+    color:#000;
+    min-width: 220px;
+    border-radius:5px;
+    align-items: center;
+    gap:8px;
+    justify-content: center;
+    width: 100%;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
 }

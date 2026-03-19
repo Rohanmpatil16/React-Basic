@@ -4,11 +4,54 @@
     display: flex;
 }
 
-/* .contact-form{
+.button{
+    display: flex;
    
+    gap: 32px;
+    padding: 40px 0;
 }
 
-.contact-image{
+.form_control{
+    display: flex;
+    flex-direction: column;
+   
+    margin-top: 24px;
+    width: 100%;
+    position: relative;
+}
 
-} */
+.form_control label{
+    font-size: 14px;
+    position:absolute;
+    top:-8px;
+    left: 12px;
+    background-color: #fff;
+    padding: 0 10px;
+}
 
+.form_control input{
+    padding: 0px 12px;
+    border: 1px solid #000;
+   height: 40px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.contaer_form{
+    margin-top: 20px;
+}
+
+.contact_image{
+    margin-top: 20px;
+    margin-left: 30px;
+   
+    object-fit: cover;
+}
+
+.contact_image img{
+  width: 600px;
+  height: auto;
+  object-fit: cover;
+  margin-top: 20px;
+  margin-left: 30px;
+}
