@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 
 
-export const StartGame = () => {
+export const StartGame = ({toogle}) => {
   return (
     <Container>
         <div>
@@ -10,7 +10,7 @@ export const StartGame = () => {
      </div>
      <div className='content'>
         <h1>Dice Game</h1>
-       <Button>Play Now</Button>
+       <Button onClick={toogle}>Play Now</Button>
      </div>
     </Container>
   )
