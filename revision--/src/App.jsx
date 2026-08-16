@@ -3,18 +3,14 @@ import { useState } from "react";
 function App()
 {
   
-  const [a,setA] = useState(1);
+  const [show,setShow] = useState(true);
 
  
   return (
 
     <div>
-      
-      <h1>Count: {a}</h1>
-     
-      <button onClick={()=>setA(a+1)}>Increment</button>
-      <button onClick={()=>setA(a-1)}>Decrement</button>
-      <button onClick={()=>setA(0)}>Reset</button>
+        <button onClick={()=>setShow(!show)}></button>
+      {show ? "Hide" : "Show"}
       
     </div>
   );
