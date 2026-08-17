@@ -1,19 +1,17 @@
-import { useState } from "react";
+import React from 'react'
 
-function App()
+function Stud(props)
 {
-  
-  const [show,setShow] = useState(true);
-
- 
+  return(
+    <h1>Name:{props.name}</h1>
+  )
+}
+function App() {
   return (
-
     <div>
-        <button onClick={()=>setShow(!show)}></button>
-      {show ? "Hide" : "Show"}
-      
+      <Stud name="Rohan"></Stud>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
