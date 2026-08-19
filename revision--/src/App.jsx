@@ -1,16 +1,8 @@
 import React from 'react'
-
-function Stud(props)
-{
-  return(
-    <h1>Name:{props.name}</h1>
-  )
-}
+import './App.css'
 function App() {
   return (
-    <div>
-      <Stud name="Rohan"></Stud>
-    </div>
+    <div className="app text-3xl font-bold text-blue-500">App</div>
   )
 }
 
