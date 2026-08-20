@@ -1,9 +1,22 @@
-import React from 'react'
-import './App.css'
+import React from "react";
+import { useState } from "react";
+
 function App() {
+
+  const [name,setName]=useState("");
   return (
-    <div className="app text-3xl font-bold text-blue-500">App</div>
-  )
+    <div>
+      <h1>hlo</h1>
+      <form onSubmit={(e)=>{
+        e.preventDefault();
+        console.log(name);
+        setName("");
+      }}>
+      <input type="text" placeholder="Enter your name:" value={name} onChange={(e)=>setName(e.target.value)}></input>
+      <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
 }
 
-export default App
+export default App;
