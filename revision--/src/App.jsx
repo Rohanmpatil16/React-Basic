@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
+import Navbar from "./components/Navbar";
 
 function App() {
 
   const [name,setName]=useState("");
   return (
     <div>
+      <Navbar/>
       <h1>hlo</h1>
       <form onSubmit={(e)=>{
         e.preventDefault();
