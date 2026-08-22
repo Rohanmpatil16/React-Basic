@@ -1,30 +1,50 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 
 function App() {
 
-  const [users, setUsers] = useState([]);
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
 
-  useEffect(() => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    axios.get("https://jsonplaceholder.typicode.com/users")
-      .then((response) => {
-        setUsers(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    console.log("Name:", name);
+    console.log("Age:", age);
 
-  }, []);
+    setName("");
+    setAge("");
+  };
 
   return (
     <div>
 
-      <h1>Users</h1>
+      <h1>User Form</h1>
 
-      {users.map((user) => (
-        <h2 key={user.id}>{user.name}</h2>
-      ))}
+      <form onSubmit={handleSubmit}>
+
+        <input
+          type="text"
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <br /><br />
+
+        <input
+          type="number"
+          placeholder="Enter your age"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+        />
+
+        <br /><br />
+
+        <button type="submit">
+          Submit
+        </button>
+
+      </form>
 
     </div>
   );
