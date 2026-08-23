@@ -1,53 +1,13 @@
-import { useState } from "react";
-
-function App() {
-
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("Name:", name);
-    console.log("Age:", age);
-
-    setName("");
-    setAge("");
-  };
-
+import React from 'react'
+import About from './components/About'
+import Home from './components/Home'
+const App = () => {
   return (
     <div>
-
-      <h1>User Form</h1>
-
-      <form onSubmit={handleSubmit}>
-
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-
-        <br /><br />
-
-        <input
-          type="number"
-          placeholder="Enter your age"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
-
-        <br /><br />
-
-        <button type="submit">
-          Submit
-        </button>
-
-      </form>
-
+      <Route path='/' element={<Home/>} />
+      <Route path='/about' element={<About/>} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
