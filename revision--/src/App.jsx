@@ -22,15 +22,7 @@ const App = () => {
         {/* About Page */}
         <Route path="/about" element={<About />} />
 
-        {/* Contact Page */}
-        <Route path="/contact" element={<Contact />} />
-
-        {/* Profile Page */}
-        <Route path="/profile/:name" element={<Profile />} />
-
-        {/* 404 Page */}
-        <Route path="*" element={<NotFound />} />
-
+  
       </Routes>
 
     </div>
