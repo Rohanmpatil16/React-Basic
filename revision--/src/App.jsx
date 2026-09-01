@@ -1,33 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const AddUser = () => {
+const Users = () => {
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [profession, setProfession] = useState("");
+  const [users, setUsers] = useState([]);
 
-  const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newUser = {
-      name: name,
-      email: email,
-      profession: profession
-    };
+  // GET users
+  useEffect(() => {
 
     axios
-      .post("https://jsonplaceholder.typicode.com/users", newUser)
+      .get("https://jsonplaceholder.typicode.com/users")
       .then((response) => {
+        setUsers(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-        console.log("User Added:", response.data);
+  }, []);
 
-        alert("User Added Successfully!");
+  // DELETE user
+  const deleteUser = (id) => {
 
-        navigate("/users");
+    axios
+      .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then(() => {
+
+        // Remove deleted user from UI
+        setUsers(users.filter((user) => user.id !== id));
 
       })
       .catch((error) => {
@@ -39,46 +40,52 @@ const AddUser = () => {
     <div className="p-10">
 
       <h1 className="text-3xl font-bold mb-5">
-        Add User
+        Users
       </h1>
 
-      <form onSubmit={handleSubmit}>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-        <input
-          type="text"
-          placeholder="Enter name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="border p-2 mb-3 block"
-        />
+        {users.map((user) => (
 
-        <input
-          type="email"
-          placeholder="Enter email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="border p-2 mb-3 block"
-        />
+          <div
+            key={user.id}
+            className="p-5 bg-white text-black rounded shadow"
+          >
 
-        <input
-          type="text"
-          placeholder="Enter profession"
-          value={profession}
-          onChange={(e) => setProfession(e.target.value)}
-          className="border p-2 mb-3 block"
-        />
+            <h2 className="text-xl font-bold">
+              {user.name}
+            </h2>
 
-        <button
-          type="submit"
-          className="bg-green-500 text-white px-4 py-2 rounded"
-        >
-          Add User
-        </button>
+            <p>{user.email}</p>
 
-      </form>
+            <p>{user.phone}</p>
+
+            <div className="mt-4 flex gap-2">
+
+              <Link
+                to={`/users/${user.id}`}
+                className="bg-blue-500 text-white px-4 py-2 rounded"
+              >
+                View
+              </Link>
+
+              <button
+                onClick={() => deleteUser(user.id)}
+                className="bg-red-500 text-white px-4 py-2 rounded"
+              >
+                Delete
+              </button>
+
+            </div>
+
+          </div>
+
+        ))}
+
+      </div>
 
     </div>
   );
 };
 
-export default AddUser;
+export default Users;
